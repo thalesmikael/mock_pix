@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file: .env
+    volumes:
+      - ./:/var/www
+      - ./storage:/var/www/storage
+    depends_on:
+      - mysql
+      - rabbitmq
+    environment:
+      - CRON_TZ=America/Sao_Paulo
+    command: >
+      sh -c "
+        echo '0 9 * * * php /var/www/scripts/report_daily.php' > /etc/cron.d/report
+        chmod 0644 /etc/cron.d/report
+        crontab /etc/cron.d/report
+        cron -f &
+        php -S 0.0.0.0:8080 -t /var/www/public
+      "
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pixdb
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./scripts/migrate.sql:/docker-entrypoint-initdb.d/migrate.sql
+    command: --default-authentication-plugin=mysql_native_password
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+volumes:
+  dbdata:
