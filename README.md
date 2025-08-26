@@ -10,6 +10,11 @@ Sistema mock funcional para PIX seguindo padrão MVC com **Model (DAO), Controll
 - **RabbitMQ** para eventos assíncronos
 - **Código limpo e testável** sem overengineering
 
+- ## Fluxograma
+
+- <img width="853" height="1090" alt="image" src="https://github.com/user-attachments/assets/7405d17d-998a-40d9-a2b0-8c040daa84ba" />
+
+
 ## 🚀 Funcionalidades
 
 ### Validação de Origem
