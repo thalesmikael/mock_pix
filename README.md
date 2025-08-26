@@ -1,6 +1,5 @@
-# Mock PIX - Sistema Funcional em PHP 8.3
-
-Sistema mock funcional para PIX seguindo padrão MVC com **Model (DAO), Controllers e Services** concentrando as regras de negócio.
+# Mock PIX
+Sistema mock para PIX seguindo padrão MVC com **Model (DAO), Controllers e Services**.
 
 ## 🏗️ Arquitetura
 
@@ -58,12 +57,12 @@ Sistema mock funcional para PIX seguindo padrão MVC com **Model (DAO), Controll
 
 ## 🛠️ Stack Técnica
 
-- **PHP 8.3** (CLI + FPM)
+- **PHP 8.3**
 - **PDO MySQL** para persistência
 - **Composer** para autoload
 - **Router simples** próprio
 - **MySQL 8** em container
-- **RabbitMQ** (5672 broker, 15672 management)
+- **RabbitMQ**
 - **Email mock**: Salva `.eml` em `storage/mails/`
 - **Cron**: Executa relatório diário às 09:00
 
