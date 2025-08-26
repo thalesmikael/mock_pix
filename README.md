@@ -1,4 +1,4 @@
-# Mock PIX v2 - Sistema Funcional em PHP 8.3
+# Mock PIX - Sistema Funcional em PHP 8.3
 
 Sistema mock funcional para PIX seguindo padrão MVC com **Model (DAO), Controllers e Services** concentrando as regras de negócio.
 
