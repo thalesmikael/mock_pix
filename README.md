@@ -1,4 +1,4 @@
-# Mock PIX
+# Mock PIX (Work in progress)
 Sistema mock para PIX seguindo padrão MVC com **Model (DAO), Controllers e Services**.
 
 ## 🏗️ Arquitetura
